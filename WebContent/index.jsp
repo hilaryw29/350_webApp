@@ -35,7 +35,7 @@
 				<!-- You can put left sidebar links here if you want to. -->
 			</div>
 			<div class="col-sm-8 text-left">
-				<h1>Welcome</h1>
+				<h1>Hello World!</h1>
 				<p>In this project, your team will design and build a web
 					application. A web application is a software application that is
 					accessed over the Internet using standard browsers (e.g. Internet
