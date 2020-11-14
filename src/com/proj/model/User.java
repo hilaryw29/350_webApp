@@ -1,6 +1,6 @@
 package com.proj.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class User {
 	/**
@@ -11,7 +11,7 @@ public class User {
 	private String username;
 	private String password;
 	private Date dob;
-	private String phoneNumber;
+	private String phoneNum;
 	private String region;
 	private String email;
 	private boolean valid;
@@ -65,11 +65,11 @@ public class User {
 	}
 
 	public String getPhoneNumber() {
-		return phoneNumber;
+		return phoneNum;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+		this.phoneNum = phoneNumber;
 	}
 
 	public String getRegion() {

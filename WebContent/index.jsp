@@ -162,16 +162,14 @@ span.psw {
 	  	<div style="float: left; width: 50%">
 	    	<label for="uname"><b>Log in</b></label>
 	    	<div>
-	   	    	<input type="text" placeholder="Enter Username" name="uname" required>
-	    		<label for="uname"><b>U of T Email</b></label>
+	   	    	<input type="text" placeholder="Enter Email" name="email" required>
+	    		<label for="email"><b>U of T Email</b></label>
 	    	</div>
 	
 			<div>
-		    	<input type="password" placeholder="Enter Password" name="psw" required>
-		    	<label for="psw"><b>Password</b></label>
+		    	<input type="password" placeholder="Enter Password" name="password" required>
+		    	<label for="password"><b>Password</b></label>
 			</div>
-	
-	
 	    	<button type="submit">Sign In</button>
 		    <label>
 		      <input type="checkbox" checked="checked" name="remember">       Remember me
