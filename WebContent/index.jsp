@@ -161,16 +161,14 @@ span.psw {
 	<section class="container">
 	  	<div style="float: left; width: 50%">
 	    	<label for="uname"><b>Log in</b></label>
-	    	<div>
-	   	    	<input type="text" placeholder="Enter Email" name="email" required>
-	    		<label for="email"><b>U of T Email</b></label>
-	    	</div>
-	
-			<div>
-		    	<input type="password" placeholder="Enter Password" name="password" required>
-		    	<label for="password"><b>Password</b></label>
-			</div>
-	    	<button type="submit">Sign In</button>
+	    	
+	    	<form action="LoginController">
+
+					<b>U of T Email:</b> <input type="text" placeholder="Enter Email"  name="un" /><br><b>Password: </b><input
+						type="password" placeholder="Enter Password"  name="pw" /> <input type="submit"
+						class="btn btn-info" value="Submit">
+
+			</form>
 		    <label>
 		      <input type="checkbox" checked="checked" name="remember">       Remember me
 		    </label>
