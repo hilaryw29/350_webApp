@@ -45,7 +45,7 @@ public class UserLoginController extends HttpServlet {
 				 * TODO: Redirect to the members-only (listings??) page. Update redirect file.
 				 * Redirecting to a random page (about.jsp) for now to check if login works.
 				 */
-				response.sendRedirect("about.jsp");
+				response.sendRedirect("SearchPage.jsp");
 
 				/**
 				 * Set a timeout variable of 900 seconds (15 minutes) for this
