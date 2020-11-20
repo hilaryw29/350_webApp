@@ -39,6 +39,16 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+		<display-name>UserLoginController</display-name>
+		<servlet-name>UserLoginController</servlet-name>
+		<servlet-class>com.proj.controller.UserLoginController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserLoginController</servlet-name>
+		<url-pattern>/UserLoginController</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
 		<display-name>LogoutServlet</display-name>
 		<servlet-name>LogoutServlet</servlet-name>
 		<servlet-class>com.mie.controller.LogoutServlet</servlet-class>
