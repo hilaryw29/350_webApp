@@ -59,7 +59,7 @@ public class UserDao {
 			/**
 			 * If the query results in an database entry that matches the
 			 * username and password, assign the appropriate information to
-			 * the Member object.
+			 * the User object.
 			 */
 			else if (more) {
 				String username = rs.getString("username");

@@ -10,6 +10,7 @@ import com.proj.dao.UserDao;
 import com.proj.model.User;
 
 public class UserLoginController extends HttpServlet {
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, java.io.IOException {
 

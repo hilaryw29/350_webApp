@@ -59,7 +59,7 @@ public class UserController extends HttpServlet {
 
 		/**
 		 * This method retrieves all of the information entered in the form on
-		 * the addStudent.jsp or the editStudent.jsp pages.
+		 * the newUser.jsp or the editUser.jsp pages.
 		 */
 		User user = new User();
 		user.setUsername(request.getParameter("username"));

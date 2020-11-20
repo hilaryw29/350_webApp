@@ -162,10 +162,10 @@ span.psw {
 	  	<div style="float: left; width: 50%">
 	    	<label for="uname"><b>Log in</b></label>
 	    	
-	    	<form action="LoginController">
+	    	<form method="get" action="UserLoginController">
 
-					<b>U of T Email:</b> <input type="text" placeholder="Enter Email"  name="un" /><br><b>Password: </b><input
-						type="password" placeholder="Enter Password"  name="pw" /> <input type="submit"
+					<b>U of T Email:</b> <input type="text" placeholder="Enter Email"  name="email" /><br><b>Password: </b><input
+						type="password" placeholder="Enter Password"  name="password" /> <input type="submit"
 						class="btn btn-info" value="Submit">
 
 			</form>
