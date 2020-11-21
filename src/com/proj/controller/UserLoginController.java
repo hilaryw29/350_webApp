@@ -35,7 +35,8 @@ public class UserLoginController extends HttpServlet {
 			if (user.isValid()) {
 
 				HttpSession session = request.getSession(true);
-				session.setAttribute("currentSessionmember", user);
+				session.setAttribute("currentSessionUser", user);
+				session.setAttribute("userId", user.getUserid());
 				session.setAttribute("username", user.getUsername());
 				session.setAttribute("email", user.getEmail());
 				session.setAttribute("phoneNum", user.getPhoneNumber());

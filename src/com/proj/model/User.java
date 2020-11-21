@@ -16,11 +16,11 @@ public class User {
 	private String email;
 	private boolean valid;
 
-	public int getMemberid() {
+	public int getUserid() {
 		return userId;
 	}
 
-	public void setMemberid(int memberid) {
+	public void setUserid(int memberid) {
 		this.userId = memberid;
 	}
 

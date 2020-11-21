@@ -45,13 +45,13 @@
 				<form style="border: 1px solid black; padding: 10px;">
 					<div style="display: inline-block; vertical-align: top;">
 						<label class="table-label">Title:</label> <input type="text" name="title" /><br>
-						<label class="table-label">Listing Description:</label> <input type="text" name="listDesc" /><br>
-						<label class="table-label">Price:</label> <input type="text" name="price" /><br>
+						<label class="table-label">Listing Description:</label> <input type="text" name="description" /><br>
+						<label class="table-label">Price:</label> <input type="number" name="price" /><br>
 						<label class="table-label">Category:</label> <input type="text" name="category" /><br>
 						<label class="table-label"></label><input type="submit" class="btn btn-info" value="Create Listing">
 					</div>
 					<div style="display: inline-block; vertical-align: top">
-						<input type="file" text="Upload" placeholder="JPG File" name="jpgFile" accept="image/jpg, image/jpeg" />
+						<input type="file" text="Upload" placeholder="JPG File" name="listingImage" accept="image/jpg, image/jpeg" />
 					</div>
 				</form>
 			</div>

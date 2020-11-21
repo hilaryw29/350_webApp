@@ -62,9 +62,12 @@ public class UserDao {
 			 * the User object.
 			 */
 			else if (more) {
-				String username = rs.getString("username");
-
-				user.setUsername(username);
+				user.setUserid(rs.getInt("userID"));
+				user.setUsername(rs.getString("username"));
+				user.setPhoneNumber(rs.getString("phoneNum"));
+				user.setRegion(rs.getString("region"));
+				user.setDob(rs.getDate("dob"));
+				
 				user.setValid(true);
 			}
 		}

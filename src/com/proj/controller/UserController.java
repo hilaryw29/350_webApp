@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.proj.dao.UserDao;
-import com.proj.model.User;;
+import com.proj.model.User;
 
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -74,7 +74,6 @@ public class UserController extends HttpServlet {
 		user.setPhoneNumber(request.getParameter("phoneNum"));
 		user.setRegion(request.getParameter("region"));
 		user.setEmail(request.getParameter("email"));
-		String studentid = request.getParameter("studentid");
 		/**
 		 * Add in if/else statement only if we plan on using this same controller/page for editing
 		 * user account info as well.
