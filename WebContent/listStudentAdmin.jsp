@@ -40,7 +40,7 @@
 
 	<%@ include file="navbar_loggedin.jsp"%>
 	<%
-		Member member = (Member) session.getAttribute("currentSessionUser");
+		Member member = (Member) session.getAttribute("currentSessionMember");
 
 		String username = (String) session.getAttribute("username");
 		String firstname = (String) session.getAttribute("firstname");

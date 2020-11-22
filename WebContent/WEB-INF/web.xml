@@ -59,6 +59,20 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+		<display-name>ListingController</display-name>
+		<servlet-name>ListingController</servlet-name>
+		<servlet-class>com.proj.controller.ListingController</servlet-class>
+		<multipart-config>
+  		<max-file-size>3145728</max-file-size>
+ 		<max-request-size>5242880</max-request-size>
+ </multipart-config>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListingController</servlet-name>
+		<url-pattern>/ListingController</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
 		<display-name>LogoutServlet</display-name>
 		<servlet-name>LogoutServlet</servlet-name>
 		<servlet-class>com.mie.controller.LogoutServlet</servlet-class>

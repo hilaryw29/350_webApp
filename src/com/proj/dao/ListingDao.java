@@ -20,25 +20,30 @@ public class ListingDao {
 		connection = DbUtil.getConnection();
 	}
 	
-	public void addListing(Listing listing) { 
+	public int addListing(Listing listing) { 
 		/**
 		 * This method adds a new listing to the database.
 		 */
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into listings(userID,title,description,price,category,imagePath) values (?, ?, ?, ?, ?, ?)");
+					.prepareStatement("insert into listings(title,description,price,category,image,userID) values (?, ?, ?, ?, ?, ?)");
+//			PreparedStatement preparedStatement = connection
+//					.prepareStatement("insert into listings(title,description,price,category,userID) values (?, ?, ?, ?, ?)");
 			// Parameters start with 1
-			preparedStatement.setInt(1, listing.getUserId());
-			preparedStatement.setString(2, listing.getTitle());
-			preparedStatement.setString(3, listing.getDescription());
-			preparedStatement.setDouble(4, listing.getPrice());
-			preparedStatement.setString(5, listing.getCategory());
-			preparedStatement.setBlob(6, listing.getImage());
-			preparedStatement.executeUpdate();
+			preparedStatement.setString(1, listing.getTitle());
+			preparedStatement.setString(2, listing.getDescription());
+			preparedStatement.setDouble(3, listing.getPrice());
+			preparedStatement.setString(4, listing.getCategory());
+			preparedStatement.setString(5, listing.getImagePath());
+			preparedStatement.setInt(6, listing.getUserId());
+			int result = preparedStatement.executeUpdate();
+			
+			return result;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return 0;
 	}
 
 }

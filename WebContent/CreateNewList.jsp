@@ -42,16 +42,17 @@
 			<div class="col-sm-8 text-left">
 				<h1>Create New Listing</h1>
 
-				<form style="border: 1px solid black; padding: 10px;">
+				<form method="post" action="ListingController" enctype='multipart/form-data' style="border: 1px solid black; padding: 10px;">
 					<div style="display: inline-block; vertical-align: top;">
 						<label class="table-label">Title:</label> <input type="text" name="title" /><br>
 						<label class="table-label">Listing Description:</label> <input type="text" name="description" /><br>
 						<label class="table-label">Price:</label> <input type="number" name="price" /><br>
 						<label class="table-label">Category:</label> <input type="text" name="category" /><br>
+						<!--label class="table-label">File:</label> <input type="file" text="Upload" placeholder="Image File" name="listingImage" accept="image/jpg, image/jpeg, image/png" /-->
 						<label class="table-label"></label><input type="submit" class="btn btn-info" value="Create Listing">
 					</div>
 					<div style="display: inline-block; vertical-align: top">
-						<input type="file" text="Upload" placeholder="JPG File" name="listingImage" accept="image/jpg, image/jpeg" />
+						<input type="file" text="Upload" placeholder="Image File" name="listingImage" accept="image/jpg, image/jpeg, image/png" />
 					</div>
 				</form>
 			</div>

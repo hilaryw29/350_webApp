@@ -10,7 +10,7 @@ public class Listing {
 	private String description;
 	private double price;
 	private String category;
-	private InputStream image;
+	private String imagePath;
 	
 	public int getListingId() {
 		return listingId;
@@ -50,11 +50,11 @@ public class Listing {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public InputStream getImage() {
-		return image;
+	public String getImagePath() {
+		return imagePath;
 	}
-	public void setImage(InputStream image) {
-		this.image = image;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	
 	@Override
