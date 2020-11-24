@@ -16,7 +16,7 @@ import com.proj.model.User;
 
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String INSERT = "/addUser.jsp";
+	private static String INSERT = "/sign_up.jsp";
 	private static String LOGIN_PAGE = "/index.jsp";
 	
 	private UserDao dao;

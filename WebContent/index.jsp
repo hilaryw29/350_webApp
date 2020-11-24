@@ -162,7 +162,7 @@ span.psw {
 	  	<div style="float: left; width: 50%">
 	    	<label for="uname"><b>Log in</b></label>
 	    	
-	    	<form method="get" action="UserLoginController">
+	    	<form method="post" action="UserLoginController">
 
 					<b>U of T Email:</b> <input type="text" placeholder="Enter Email"  name="email" /><br><b>Password: </b><input
 						type="password" placeholder="Enter Password"  name="password" /> <input type="submit"
@@ -178,7 +178,7 @@ span.psw {
   		</div>
   		<div style="float: left; width: 50%;">
   			<p><b>New Users?</b></p>
-  			<button type="submit">Create Account</button>
+  			<a class="btn btn-primary" href="UserLoginController?action=insert">Create Account</a>
   		</div>	
 	</section>
 

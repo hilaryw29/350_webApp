@@ -30,8 +30,6 @@ public class ListingDao {
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("insert into listings(title,description,price,category,image,userID) values (?, ?, ?, ?, ?, ?)");
-//			PreparedStatement preparedStatement = connection
-//					.prepareStatement("insert into listings(title,description,price,category,userID) values (?, ?, ?, ?, ?)");
 			// Parameters start with 1
 			preparedStatement.setString(1, listing.getTitle());
 			preparedStatement.setString(2, listing.getDescription());
