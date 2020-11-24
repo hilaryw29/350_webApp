@@ -62,7 +62,7 @@ public class ListingDao {
 		return 0;
 	}
 
-	public List<Listing> getLisitngByCategory (String category){
+	public List<Listing> getListingByCategory (String category){
 		/**
 		 * This method retrieves a list of listing that matches the category
 		 * selected by the user.
