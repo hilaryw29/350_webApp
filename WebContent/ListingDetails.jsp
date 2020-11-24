@@ -28,11 +28,38 @@
 		display: inline-block;
 		text-align: right;
 	}
+	
+	a {
+	  text-decoration: none;
+	  display: inline-block;
+	  padding: 8px 16px;
+	}
+	
+	a:hover {
+	  background-color: #ddd;
+	  color: black;
+	}
+	
+	.previous {
+	  background-color: #f1f1f1;
+	  color: black;
+	}
+	
+	.next {
+	  background-color: #4CAF50;
+	  color: white;
+	}
+	
+	.round {
+	  border-radius: 50%;
+	}
+
 </style>
 </head>
 <body>
 
 	<%@ include file="navbar.jsp"%>
+	
 
 	<div class="container-fluid text-center">
 		<div class="row content">
@@ -40,20 +67,31 @@
 				<!-- You can put left sidebar links here if you want to. -->
 			</div>
 			<div class="col-sm-8 text-left">
-				<h1>Create New Listing</h1>
-
-				<form method="post" action="ListingController" enctype='multipart/form-data' style="border: 1px solid black; padding: 10px;">
-					<div style="display: inline-block; vertical-align: top;">
-						<label class="table-label">Title:</label> <input type="text" name="title" /><br>
-						<label class="table-label">Listing Description:</label> <input type="text" name="description" /><br>
-						<label class="table-label">Price:</label> <input type="number" name="price" /><br>
-						<label class="table-label">Category:</label> <input type="text" name="category" /><br>
-						<!--label class="table-label">File:</label> <input type="file" text="Upload" placeholder="Image File" name="listingImage" accept="image/jpg, image/jpeg, image/png" /-->
-						<label class="table-label"></label><input type="submit" class="btn btn-info" value="Create Listing">
-					</div>
-					<div style="display: inline-block; vertical-align: top">
-						<input type="file" text="Upload" placeholder="Image File" name="listingImage" accept="image/jpg, image/jpeg, image/png" />
-					</div>
+				<h1>Listing Details</h1>
+				<form style="border: 1px solid black; padding: 10px;">
+					<div class="row">
+					    <div class="col-sm-12 col-md-12 col-lg-12">
+					            <img src="/wp-content/uploads/2014/06/kittens.jpg" 
+					             alt="a">
+					            <div class="caption">
+					                <p>
+					                	Title
+					                	Price
+					                </p>
+					                <p>
+					                    <a href="#" class="btn btn-primary" role="button">
+					                  		a
+					                    </a> 
+					                    <a href="#" class="btn btn-default" role="button">
+					                    	a    
+					                    </a>
+					                </p>
+					            </div>
+					    </div>
+					    <div class="col-sm-12 col-md-12 col-lg-12">
+							<h2>Listing Description</h2>
+				   	 	</div>
+			    	</div>
 				</form>
 			</div>
 			<div class="col-sm-2 sidenav">
@@ -65,4 +103,4 @@
 	<%@ include file="footer.jsp"%>
 
 </body>
-</html> 
+</html>
