@@ -65,7 +65,7 @@ public class UserController extends HttpServlet {
 		user.setUsername(request.getParameter("username"));
 		user.setPassword(request.getParameter("password"));
 		try {
-			Date dob = new SimpleDateFormat("MM/dd/yyyy").parse(request
+			Date dob = new SimpleDateFormat("yyyy-MM-dd").parse(request
 					.getParameter("dob"));
 			user.setDob(dob);
 		} catch (ParseException e) {

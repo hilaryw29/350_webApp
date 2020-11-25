@@ -1,6 +1,7 @@
 package com.proj.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -89,7 +90,7 @@ public class UserDao {
 		 */
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into members(username,password,dob,phoneNum,region,email) values (?, ?, ?, ?, ?, ?)");
+					.prepareStatement("insert into users(username,password,dob,phoneNum,region,email) values (?, ?, ?, ?, ?, ?)");
 			// Parameters start with 1
 			preparedStatement.setString(1, user.getUsername());
 			preparedStatement.setString(2, user.getPassword());

@@ -49,13 +49,13 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
-		<display-name>UseController</display-name>
-		<servlet-name>UseController</servlet-name>
-		<servlet-class>com.proj.controller.UseController</servlet-class>
+		<display-name>UserController</display-name>
+		<servlet-name>UserController</servlet-name>
+		<servlet-class>com.proj.controller.UserController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>UseController</servlet-name>
-		<url-pattern>/UseController</url-pattern>
+		<servlet-name>UserController</servlet-name>
+		<url-pattern>/UserController</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<description></description>

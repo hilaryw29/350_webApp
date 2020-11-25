@@ -42,7 +42,7 @@
 		</div>
 		<div class="col-sm-8 text-left">
 			<h1>Study Buddy Register Form</h1>
-			<form action="guru_register" method="post">
+			<form action="UserController" method="post">
 				<table style="with: 50%">
 					<tr>
 						<td>U of T Email</td>
@@ -54,19 +54,19 @@
 					</tr>
 					<tr>
 						<td>User Name</td>
-						<td><input type="text" name="user_name" /></td>
+						<td><input type="text" name="username" /></td>
 					</tr>
 					<tr>
 						<td>Date of Birth</td>
-						<td><input type="date" name="date_of_birth" /></td>
+						<td><input type="date" name="dob" /></td>
 					</tr>
 					<tr>
 						<td>Phone Number</td>
-						<td><input type="text" name="phone_number" /></td>
+						<td><input type="text" name="phoneNum" /></td>
 					</tr>
 					<tr>
 						<td>Region Located</td>
-						<td><input type="text" name="region_located" /></td>
+						<td><input type="text" name="region" /></td>
 					</tr></table>
 				<input type="submit" value="create account" />
 			</form>

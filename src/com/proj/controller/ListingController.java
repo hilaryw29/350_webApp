@@ -49,6 +49,7 @@ public class ListingController extends HttpServlet {
 		listing.setDescription(request.getParameter("description"));
 		listing.setPrice(Double.parseDouble(request.getParameter("price"))); 
 		listing.setCategory(request.getParameter("category"));
+		System.out.println("CATEGORY CHECK: "+ listing.getCategory());
 		listing.setUserId(user.getUserid());
 		
 		// TODO: Possible improvement - put the images in another location outside of WebContent (good convention)
