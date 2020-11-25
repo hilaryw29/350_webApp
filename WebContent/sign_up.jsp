@@ -68,7 +68,7 @@
 						<td>Region Located</td>
 						<td><input type="text" name="region_located" /></td>
 					</tr></table>
-				<button type="submit" value="create account" />
+				<input type="submit" value="create account" />
 			</form>
 		</div>
 		<div class="col-sm-2 sidenav">
