@@ -54,6 +54,14 @@ public class Listing {
 	public String getImagePath() {
 		return imagePath;
 	}
+	public String getRelativeImagePath() {
+		if (imagePath.isEmpty()) {
+			return null;
+		}
+		String relativePath = imagePath.replace( System.getProperty("user.dir"), "");
+		System.out.println("RELATIVE IMAGE PATH" + relativePath);
+		return relativePath;
+	}
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}

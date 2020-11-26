@@ -37,7 +37,7 @@ public class ListingDao {
 			preparedStatement.setString(4, listing.getCategory());
 			preparedStatement.setString(5, listing.getImagePath());
 			preparedStatement.setInt(6, listing.getUserId());
-			preparedStatement.setString(6, listing.getUsername());
+			preparedStatement.setString(7, listing.getUsername());
 			int result = preparedStatement.executeUpdate();
 			
 			return result;

@@ -108,12 +108,6 @@ public class UserDao {
 	
 	// We might not need this, delete if unused
 	public User getUserById (int userid) {
-		/**
-		 * This method retrieves a student by their StudentID number.
-		 * 
-		 * Currently not used in the sample web app, but code is left here for
-		 * your review.
-		 */
 		User user = new User();
 		try {
 			PreparedStatement preparedStatement = connection

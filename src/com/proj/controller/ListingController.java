@@ -89,15 +89,16 @@ public class ListingController extends HttpServlet {
 		listing.setUserId(user.getUserid());
 		listing.setUsername(user.getUsername());
 		
-		// TODO: Possible improvement - put the images in another location outside of WebContent (good convention)
+		//Files are uploaded in the folder "listingImages" under our working directory (assumed to be 350_webApp)
 		Part filePart = request.getPart("listingImage");
 		System.out.println("PARTS CHECK:" + filePart);
 		String fileName = getSubmittedFileName(filePart);
-		String filePath = getServletContext().getRealPath("/" + "images" + File.separator+ fileName);
+		String filePath = System.getProperty("user.dir") + File.separator + "listingImages" + File.separator+ fileName;
 		System.out.println("FILEPATH CHECK:" + filePath);
 		InputStream is = filePart.getInputStream();
 		System.out.println("UPLOAD RESULT" + uploadFile(is, filePath));
 		listing.setImagePath(filePath);
+	
 		
 		int result = dao.addListing(listing);
 		
@@ -118,7 +119,7 @@ public class ListingController extends HttpServlet {
 	    for (String cd : part.getHeader("content-disposition").split(";")) {
 	        if (cd.trim().startsWith("filename")) {
 	            String fileName = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-	            return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1); // MSIE fix.
+	            return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1);
 	        }
 	    }
 	    return null;
