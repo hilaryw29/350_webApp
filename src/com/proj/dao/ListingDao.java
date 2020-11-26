@@ -29,7 +29,7 @@ public class ListingDao {
 		 */
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into listings(title,description,price,category,image,userID) values (?, ?, ?, ?, ?, ?)");
+					.prepareStatement("insert into listings(title,description,price,category,image,userID,username) values (?, ?, ?, ?, ?, ?,?)");
 			// Parameters start with 1
 			preparedStatement.setString(1, listing.getTitle());
 			preparedStatement.setString(2, listing.getDescription());
@@ -37,6 +37,7 @@ public class ListingDao {
 			preparedStatement.setString(4, listing.getCategory());
 			preparedStatement.setString(5, listing.getImagePath());
 			preparedStatement.setInt(6, listing.getUserId());
+			preparedStatement.setString(6, listing.getUsername());
 			int result = preparedStatement.executeUpdate();
 			
 			return result;
@@ -85,6 +86,7 @@ public class ListingDao {
 				listing.setCategory(rs.getString("category"));
 				listing.setImagePath(rs.getString("image"));
 				listing.setUserId(rs.getInt("userID"));
+				listing.setUsername(rs.getString("username"));
 				listings.add(listing);
 			}
 		} catch (SQLException e) {
@@ -114,12 +116,39 @@ public class ListingDao {
 				listing.setCategory(rs.getString("category"));
 				listing.setImagePath(rs.getString("image"));
 				listing.setUserId(rs.getInt("userID"));
+				listing.setUsername(rs.getString("username"));
 				listings.add(listing);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return listings;
+	}
+
+	public Listing getListingById(int listingId) {
+		Listing listing = new Listing();
+		
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from listings where listingID=?");
+
+			preparedStatement.setInt(1, listingId);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				listing.setListingId(rs.getInt("listingID"));
+				listing.setTitle(rs.getString("title"));
+				listing.setDescription(rs.getString("description"));
+				listing.setPrice(rs.getDouble("price"));
+				listing.setCategory(rs.getString("category"));
+				listing.setImagePath(rs.getString("image"));
+				listing.setUserId(rs.getInt("userID"));
+				listing.setUsername(rs.getString("username"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listing;
 	}
 
 

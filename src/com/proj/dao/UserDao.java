@@ -9,6 +9,7 @@ import java.sql.Statement;
 
 import com.proj.model.*;
 import com.proj.controller.*;
+import com.mie.model.Student;
 import com.mie.util.DbUtil;
 
 public class UserDao {
@@ -103,5 +104,35 @@ public class UserDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	// We might not need this, delete if unused
+	public User getUserById (int userid) {
+		/**
+		 * This method retrieves a student by their StudentID number.
+		 * 
+		 * Currently not used in the sample web app, but code is left here for
+		 * your review.
+		 */
+		User user = new User();
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from users where userID=?");
+			preparedStatement.setInt(1, userid);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			if (rs.next()) {
+				user.setUserid(rs.getInt("userID"));
+				user.setEmail(rs.getString("email"));
+				user.setUsername(rs.getString("username"));
+				user.setPhoneNumber(rs.getString("phoneNum"));
+				user.setRegion(rs.getString("region"));
+				user.setDob(rs.getDate("dob"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return user;
 	}
 }

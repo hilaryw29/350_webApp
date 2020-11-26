@@ -11,6 +11,7 @@ public class Listing {
 	private double price;
 	private String category;
 	private String imagePath;
+	private String username;
 	
 	public int getListingId() {
 		return listingId;
@@ -55,6 +56,12 @@ public class Listing {
 	}
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	@Override

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -67,16 +68,18 @@
 				<!-- You can put left sidebar links here if you want to. -->
 			</div>
 			<div class="col-sm-8 text-left">
-				<h1>Listing Details</h1>
+				<h1>Listing <c:out value="${listing.getListingId()}" />: <c:out value="${listing.getTitle()}" /></h1>
 				<form style="border: 1px solid black; padding: 10px;">
 					<div class="row">
 					    <div class="col-sm-12 col-md-12 col-lg-12">
 					            <img src="/wp-content/uploads/2014/06/kittens.jpg" 
 					             alt="a">
 					            <div class="caption">
+					            	<p>
+					                	Sold By: <c:out value="${listing.getUsername()}" />
+					                </p>
 					                <p>
-					                	Title
-					                	Price
+					                	Price: <c:out value="${listing.getPrice()}" />
 					                </p>
 					                <p>
 					                    <a href="#" class="btn btn-primary" role="button">
@@ -90,6 +93,7 @@
 					    </div>
 					    <div class="col-sm-12 col-md-12 col-lg-12">
 							<h2>Listing Description</h2>
+							<p><c:out value="${listing.getTitle()}" /></p>
 				   	 	</div>
 			    	</div>
 				</form>

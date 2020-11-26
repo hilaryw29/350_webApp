@@ -25,6 +25,7 @@ public class ListingController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String INSERT = "/CreateNewList.jsp";
 	private static String SEARCH_PAGE = "/SearchPage.jsp";
+	private static String LISTING_DETAILS = "/ListingDetails.jsp";
 	private static String LOGIN_PAGE = "/index.jsp";
 	private static String IMAGES_PATH = "/images";
 	
@@ -33,6 +34,42 @@ public class ListingController extends HttpServlet {
 	public ListingController() {
 		super();
 		dao = new ListingDao();
+	}
+	
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		/**
+		 * This class retrieves the appropriate 'action' found on the JSP pages:
+		 * 
+		 * - delete will direct the servlet to let the user delete a student in
+		 * the database. - insert will direct the servlet to let the user add a
+		 * new student to the database. - edit will direct the servlet to let
+		 * the user edit student information in the database. - listStudent will
+		 * direct the servlet to the public listing of all students in the
+		 * database. - listStudentAdmin will direct the servlet to the admin
+		 * listing of all students in the database.
+		 */
+		String forward = "";
+		String action = request.getParameter("action");
+		
+		if (action.equalsIgnoreCase("insert")) {
+			forward = INSERT;
+		} else if (action.equalsIgnoreCase("delete")){
+			//You must pass in "listingId" inside the href when calling delete, otherwise won't work
+			int listingId = Integer.parseInt(request.getParameter("listingId"));
+			dao.deleteListing(listingId);
+			forward = SEARCH_PAGE; // can update to whatever page we want user to go to after listing is deleted
+		} else if (action.equalsIgnoreCase("listingDetails")) {
+			forward = LISTING_DETAILS;
+			int listingId = Integer.parseInt(request.getParameter("listingId"));
+			request.setAttribute("listing", dao.getListingById(listingId));
+		} else {
+			forward = INSERT;
+		}
+
+		RequestDispatcher view = request.getRequestDispatcher(forward);
+		view.forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request,
@@ -49,8 +86,8 @@ public class ListingController extends HttpServlet {
 		listing.setDescription(request.getParameter("description"));
 		listing.setPrice(Double.parseDouble(request.getParameter("price"))); 
 		listing.setCategory(request.getParameter("category"));
-		System.out.println("CATEGORY CHECK: "+ listing.getCategory());
 		listing.setUserId(user.getUserid());
+		listing.setUsername(user.getUsername());
 		
 		// TODO: Possible improvement - put the images in another location outside of WebContent (good convention)
 		Part filePart = request.getPart("listingImage");
@@ -75,13 +112,6 @@ public class ListingController extends HttpServlet {
 			view.forward(request, response);
 		}
 		
-		/**
-		 * Once the student has been added or updated, the page will redirect to
-		 * the search page.
-		 */
-//		RequestDispatcher view = request
-//				.getRequestDispatcher(SEARCH_PAGE);
-//		view.forward(request, response);
 	}
 
 	private static String getSubmittedFileName(Part part) {

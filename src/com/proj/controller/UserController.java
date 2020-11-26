@@ -10,7 +10,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.mie.model.Student;
 import com.proj.dao.UserDao;
 import com.proj.model.User;
 
@@ -18,6 +20,7 @@ public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String INSERT = "/sign_up.jsp";
 	private static String LOGIN_PAGE = "/index.jsp";
+	private static String EDIT = "/edit_user.jsp"; //Update once actual page is written
 	
 	private UserDao dao;
 
@@ -48,7 +51,9 @@ public class UserController extends HttpServlet {
 
 		if (action.equalsIgnoreCase("insert")) {
 			forward = INSERT;
-		} 
+		} else if (action.equalsIgnoreCase("edit")) {
+			forward = EDIT;
+		}
 
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
