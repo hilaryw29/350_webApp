@@ -73,6 +73,16 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+		<display-name>DisplayImage</display-name>
+		<servlet-name>DisplayImage</servlet-name>
+		<servlet-class>com.proj.controller.DisplayImage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisplayImage</servlet-name>
+		<url-pattern>/listingImages/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
 		<display-name>LogoutServlet</display-name>
 		<servlet-name>LogoutServlet</servlet-name>
 		<servlet-class>com.mie.controller.LogoutServlet</servlet-class>

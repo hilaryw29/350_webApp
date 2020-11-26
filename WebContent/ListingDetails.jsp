@@ -72,8 +72,8 @@
 				<form style="border: 1px solid black; padding: 10px;">
 					<div class="row">
 					    <div class="col-sm-12 col-md-12 col-lg-12">
-					            <img src="/wp-content/uploads/2014/06/kittens.jpg" 
-					             alt="a">
+					            <img src="http://localhost:8080/mie350webapp<c:out value="${listing.getRelativeImagePath()}" />" />
+					        
 					            <div class="caption">
 					            	<p>
 					                	Sold By: <c:out value="${listing.getUsername()}" />

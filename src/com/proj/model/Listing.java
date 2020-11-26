@@ -1,5 +1,6 @@
 package com.proj.model;
 
+import java.io.File;
 import java.io.InputStream;
 
 public class Listing {
@@ -59,6 +60,7 @@ public class Listing {
 			return null;
 		}
 		String relativePath = imagePath.replace( System.getProperty("user.dir"), "");
+		relativePath = relativePath.replace('\\', '/');
 		System.out.println("RELATIVE IMAGE PATH" + relativePath);
 		return relativePath;
 	}
