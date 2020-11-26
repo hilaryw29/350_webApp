@@ -6,12 +6,12 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.jsp">MIE350 Sample Web App</a>
-		</div>
+			<a class="navbar-brand" href="index.jsp">StudyBuddy</a>
+		</div>s
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="index.jsp">Home</a></li>
-				<li><a href="about.jsp">About</a></li>
+				<li><a href="Listing.jsp">Listing</a></li>
 				<li><a
 					href="/mie350webapp/StudentController?action=listStudent">Student
 						List (Public)</a></li>
@@ -30,8 +30,10 @@
 			</ul>
 			<!-- The following code can be added to include a Login button to the right-hand side of the navbar-->
 			<ul class="nav navbar-nav navbar-right">
+				<!--
 				<li><a href="login.jsp"><span
-						class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+				 -->
 			</ul>
 
 		</div>

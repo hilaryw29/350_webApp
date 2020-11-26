@@ -152,8 +152,6 @@ span.psw {
 </head>
 <body>
 
-	<%@ include file="navbar.jsp"%>
-	
 	<div class="imgcontainer">
     	<img src="img/UofT.png" alt="Avatar" class="avatar">
   	</div>
