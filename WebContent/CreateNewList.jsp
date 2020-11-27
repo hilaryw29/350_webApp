@@ -45,8 +45,8 @@
 				<form method="post" action="ListingController" enctype='multipart/form-data' style="border: 1px solid black; padding: 10px;">
 					<div style="display: inline-block; vertical-align: top;">
 						<label class="table-label">Title:</label> <input type="text" name="title" /><br>
-						<label class="table-label">Listing Description:</label> <input type="text" name="listDesc" /><br>
-						<label class="table-label">Price:</label> <input type="number" placeholder="1.0" step="0.01" min="0" max="999999"><br>
+						<label class="table-label">Listing Description:</label> <input type="text" name="description" /><br>
+						<label class="table-label">Price:</label> <input type="number" name="price" placeholder="1.0" step="0.01" min="0" max="999999"><br>
 						<label class="table-label" for="study">Category:</label>
 						<select name="category" id="category">
 							<option value="Study Materials">Study Materials</option>
