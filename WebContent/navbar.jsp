@@ -10,22 +10,17 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><a href="SearchPage.jsp">Home</a></li>
+				<li><a href="SearchPage.jsp">Search Listings</a></li>
 				<li><a href="CreateNewList.jsp">Create a Listing</a></li>
 				<li><a href="Listing.jsp">All Listings</a></li>
 				<li><a
 					href="/mie350webapp/StudentController?action=listStudent">Student
 						List (Public)</a></li>
 				<li><a href="searchStudent.jsp">Search A Student</a></li>
-				<li class="dropdown"><a data-toggle="dropdown"
-					href="helpful_links.jsp">Other Links<b class="caret"></b></a>
+				<li class="dropdown"><a data-toggle="dropdown">My Account<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="sample_html.jsp">Sample HTML Tags</a></li>
-						<li><a href="helpful_links.jsp">Other Helpful Links</a></li>
-						<li><a href="http://www.w3schools.com/html/default.asp">HTML
-								Tutorial</a></li>
-						<li><a href="http://www.w3schools.com/bootstrap/">BootStrap
-								CSS Tutorial</a></li>
+						<li><a href="/mie350webapp/UserController?action=edit">Edit Account Info</a></li>
+						<li><a href="helpful_links.jsp">Another Related Page</a></li>
 					</ul></li>
 			</ul>
 			<!-- The following code can be added to include a Login button to the right-hand side of the navbar-->

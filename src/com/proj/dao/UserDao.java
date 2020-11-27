@@ -106,6 +106,31 @@ public class UserDao {
 		}
 	}
 	
+	public boolean updateUser(User user) {
+		/**
+		 * This method updates an existing user in the database
+		 */
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("update users set username=?, password=?, dob=?, phoneNum=?, region=?"
+							+ " where userID=?");
+			// Parameters start with 1
+			preparedStatement.setString(1, user.getUsername());
+			preparedStatement.setString(2, user.getPassword());
+			preparedStatement.setDate(3, new java.sql.Date(user.getDob().getTime()));
+			preparedStatement.setString(4, user.getPhoneNumber());
+			preparedStatement.setString(5, user.getRegion());
+			preparedStatement.setInt(6, user.getUserid());
+			preparedStatement.executeUpdate();		
+			
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	// We might not need this, delete if unused
 	public User getUserById (int userid) {
 		User user = new User();

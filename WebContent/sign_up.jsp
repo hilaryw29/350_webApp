@@ -45,6 +45,10 @@
 			<form action="UserController" method="post">
 				<table style="with: 50%">
 					<tr>
+						<td>User ID (Not editable)</td>
+						<td><input type="text" name="userId" readonly="readonly"></td>
+					</tr>
+					<tr>
 						<td>U of T Email</td>
 						<td><input type="text" name="email" placeholder="jane.dole@mail.utoronto.ca" pattern=".+@mail.utoronto.ca" required></td>
 					</tr>

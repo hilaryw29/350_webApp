@@ -20,7 +20,8 @@ public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String INSERT = "/sign_up.jsp";
 	private static String LOGIN_PAGE = "/index.jsp";
-	private static String EDIT = "/edit_user.jsp"; //Update once actual page is written
+	private static String EDIT = "/EditAccount.jsp"; 
+	private static String SEARCH_PAGE = "/SearchPage.jsp";
 	
 	private UserDao dao;
 
@@ -79,18 +80,50 @@ public class UserController extends HttpServlet {
 		user.setPhoneNumber(request.getParameter("phoneNum"));
 		user.setRegion(request.getParameter("region"));
 		user.setEmail(request.getParameter("email"));
+		String userId = request.getParameter("userId");
 		/**
 		 * Add in if/else statement only if we plan on using this same controller/page for editing
 		 * user account info as well.
 		 */
-		dao.addUser(user);
+		boolean newUser = false;
+		if (userId == null || userId.isEmpty()) {
+			dao.addUser(user);
+			newUser = true;
+		} else {
+			user.setUserid(Integer.parseInt(userId));
+			
+			// If user is updated successfully, update session attributes
+			if (dao.updateUser(user)) {
+				// Updates 
+				HttpSession session = request.getSession(true);
+				session.setAttribute("currentSessionUser", user);
+				session.setAttribute("userId", user.getUserid());
+				session.setAttribute("username", user.getUsername());
+				session.setAttribute("email", user.getEmail());
+				session.setAttribute("phoneNum", user.getPhoneNumber());
+				session.setAttribute("region", user.getRegion());
+				session.setAttribute("dob", user.getDob());
+			} else {
+				//Potentially display an error message? Or take user to another page
+			}
+			
+		}
+				
+		
 
 		/**
 		 * Once the student has been added or updated, the page will redirect to
 		 * the login page.
 		 */
-		RequestDispatcher view = request
-				.getRequestDispatcher(LOGIN_PAGE);
+		RequestDispatcher view;
+		if (newUser) {
+			view = request
+					.getRequestDispatcher(LOGIN_PAGE);
+		} else {
+			view = request
+					.getRequestDispatcher(SEARCH_PAGE);
+		}
+		
 		view.forward(request, response);
 	}
 

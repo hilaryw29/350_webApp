@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-		 pageEncoding="EUC-KR"%>
+		 pageEncoding="EUC-KR" import="com.proj.model.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -34,6 +35,10 @@
 
 <%@ include file="navbar.jsp"%>
 
+<%
+		User user = (User) session.getAttribute("currentSessionUser");
+%>
+
 <div class="container-fluid text-center">
 	<div class="row content">
 		<div class="col-sm-2 sidenav">
@@ -44,36 +49,41 @@
 			<form action="UserController" method="post">
 				<table style="with: 50%">
 					<tr>
+						<td>User ID (Not editable)</td>
+						<td><input type="text" readonly="readonly" name="userId"
+						value="<%=user.getUserid()%>"/></td>
+					</tr>
+					<tr>
 						<td>U of T Email</td>
-						<td><input type="text" name="email"
-						value="<c:out value="${user.email}" />" /></td>
+						<td><input type="text" readonly="readonly" name="email"
+						value="<%=user.getEmail()%>"/></td>
 					</tr>
 					<tr>
 						<td>Password</td>
 						<td><input type="password" name="password" 
-						value="<c:out value="${user.password}" />"/></td>
+						value="<%=user.getPassword()%>"/></td>
 					</tr>
 					<tr>
 						<td>User Name</td>
 						<td><input type="text" name="username" 
-						value="<c:out value="${user.username}" />"/></td>
+						value="<%=user.getUsername()%>"/></td>
 					</tr>
 					<tr>
 						<td>Date of Birth</td>
 						<td><input type="date" name="dob" 
-						value="<c:out value="${user.dob}" />"/></td>
+						value="<%=user.getDob()%>"/></td>
 					</tr>
 					<tr>
 						<td>Phone Number</td>
 						<td><input type="text" name="phoneNum" 
-						value="<c:out value="${user.phoneNum}" />"/></td>
+						value="<%=user.getPhoneNumber()%>"/></td>
 					</tr>
 					<tr>
 						<td>Region Located</td>
 						<td><input type="text" name="region" 
-						value= "<c:out value="${user.region}" />"/></td>
+						value= "<%=user.getRegion()%>"/></td>
 					</tr></table>
-				<input type="submit" value="confirm edited account" />
+				<input type="submit" value="Save Changes" />
 			</form>
 		</div>
 		<div class="col-sm-2 sidenav">

@@ -134,6 +134,7 @@ span.psw {
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
 </head>
 <body>
+	<%@ include file="navbar_external.jsp"%>
 	
 	<div class="imgcontainer">
     	<img src="img/UofT.png" alt="Avatar" class="avatar">

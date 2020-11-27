@@ -20,8 +20,8 @@ public class User {
 		return userId;
 	}
 
-	public void setUserid(int memberid) {
-		this.userId = memberid;
+	public void setUserid(int userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {
