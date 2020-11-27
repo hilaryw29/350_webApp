@@ -105,7 +105,7 @@ public class ListingDao {
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("select * from listing where title LIKE ?");
-			preparedStatement.setString(1, keyword);
+			preparedStatement.setString(1,"%" + keyword + "%");
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {
 				Listing listing = new Listing();

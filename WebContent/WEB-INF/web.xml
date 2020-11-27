@@ -29,6 +29,16 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+		<display-name>ListingsSearchController</display-name>
+		<servlet-name>ListingsSearchController</servlet-name>
+		<servlet-class>com.proj.controller.ListingsSearchController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListingsSearchController</servlet-name>
+		<url-pattern>/ListingsSearchController</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
 		<display-name>LoginController</display-name>
 		<servlet-name>LoginController</servlet-name>
 		<servlet-class>com.mie.controller.LoginController</servlet-class>
