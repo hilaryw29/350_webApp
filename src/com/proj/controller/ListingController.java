@@ -27,8 +27,8 @@ public class ListingController extends HttpServlet {
 	private static String INSERT = "/CreateNewList.jsp";
 	private static String SEARCH_PAGE = "/SearchPage.jsp";
 	private static String LISTING_DETAILS = "/ListingDetails.jsp";
+	private static String EDIT = "/EditListing.jsp";
 	private static String LOGIN_PAGE = "/index.jsp";
-	private static String IMAGES_PATH = "/images";
 	
 	private ListingDao dao;
 	
@@ -61,8 +61,12 @@ public class ListingController extends HttpServlet {
 			int listingId = Integer.parseInt(request.getParameter("listingId"));
 			dao.deleteListing(listingId);
 			forward = SEARCH_PAGE; // can update to whatever page we want user to go to after listing is deleted
-		} else if (action.equalsIgnoreCase("listingDetails")) {
+		} else if (action.equalsIgnoreCase("listingdetails")) {
 			forward = LISTING_DETAILS;
+			int listingId = Integer.parseInt(request.getParameter("listingId"));
+			request.setAttribute("listing", dao.getListingById(listingId));
+		} else if (action.equalsIgnoreCase("edit")) {
+			forward = EDIT;
 			int listingId = Integer.parseInt(request.getParameter("listingId"));
 			request.setAttribute("listing", dao.getListingById(listingId));
 		} else {
@@ -93,16 +97,30 @@ public class ListingController extends HttpServlet {
 		//Files are uploaded in the folder "listingImages" under our working directory (assumed to be 350_webApp)
 		Part filePart = request.getPart("listingImage");
 		System.out.println("PARTS CHECK:" + filePart);
-		String fileName = getSubmittedFileName(filePart);
-		String filePath = System.getProperty("user.dir") + File.separator + "listingImages" + File.separator+ fileName;
-		System.out.println("FILEPATH CHECK:" + filePath);
-		InputStream input = filePart.getInputStream();
-		System.out.println("UPLOAD RESULT" + uploadFile(input, filePath));
 		
-		listing.setImagePath(filePath);
+		if (filePart != null) {
+			String fileName = getSubmittedFileName(filePart);
+			String filePath = System.getProperty("user.dir") + File.separator + "listingImages" + File.separator+ fileName;
+			System.out.println("FILEPATH CHECK:" + filePath);
+			InputStream input = filePart.getInputStream();
+			System.out.println("UPLOAD RESULT" + uploadFile(input, filePath));
+			
+			listing.setImagePath(filePath);
+		} else {
+			listing.setImagePath(null);
+		}
 	
+		String listingId = request.getParameter("listingId");
+		int result;
 		
-		int result = dao.addListing(listing);
+		if (listingId == null || listingId.isEmpty()) {
+			result = dao.addListing(listing);
+		} else {
+			listing.setListingId(Integer.parseInt(listingId));
+			result = dao.updateListing(listing);
+		}
+		
+		
 		
 		// TODO: update to some errors page if result == 0 instead of login
 		if (result == 0) {

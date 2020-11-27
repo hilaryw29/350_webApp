@@ -64,6 +64,12 @@ public class Listing {
 		System.out.println("RELATIVE IMAGE PATH" + relativePath);
 		return relativePath;
 	}
+	public String checkAssociatedImages() {
+		if (imagePath.isEmpty() || imagePath == null) {
+			return "no images";
+		}
+		return "one image";
+	}
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}

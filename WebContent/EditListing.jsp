@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -43,20 +44,24 @@
 				<h1>Edit Your Listing Here</h1>
 
 				<form method="post" action="ListingController" enctype='multipart/form-data' style="border: 1px solid black; padding: 10px;">
-					<div style="display: inline-block; vertical-align: top;">
+					<div style="display: inline-block; vertical-align: top; padding-bottom:10px;">
+						<label class="table-label">Listing ID (Not editable):</label> <input type="text" readonly="readonly" name="listingId" 
+						value="<c:out value="${listing.getListingId()}" />"/><br>
 						<label class="table-label">Title:</label> <input type="text" name="title" 
-						value="<c:out value="${listing.title}" />"/><br>
+						value="<c:out value="${listing.getTitle()}" />"/><br>
 						<label class="table-label">Listing Description:</label> <input type="text" name="description" 
-						value="<c:out value="${listing.description}" />"/><br>
+						value="<c:out value="${listing.getDescription()}" />"/><br>
 						<label class="table-label">Price:</label> <input type="number" name="price" 
-						value="<c:out value="${listing.price}" />"/><br>
+						value="<c:out value="${listing.getPrice()}" />"/><br>
 						<label class="table-label">Category:</label> <input type="text" name="category" 
-						value="<c:out value="${listing.category}" />"/><br>
+						value="<c:out value="${listing.getCategory()}" />"/><br>
 						<!--label class="table-label">File:</label> <input type="file" text="upload" placeholder="Image File" name="listingImage" accept="image/jpg, image/jpeg, image/png" /-->
 						<label class="table-label"></label><input type="submit" class="btn btn-info" value="confirm edited listing">
 					</div>
 					<div style="display: inline-block; vertical-align: top">
+						<p>You have <b><c:out value="${listing.checkAssociatedImages()}" /> </b> associated with this listing</p>
 						<input type="file" text="Upload" placeholder="Image File" name="listingImage" accept="image/jpg, image/jpeg, image/png" />
+						<p>Note: Your current image will be replaced if a new file is uploaded</p>
 					</div>
 				</form>
 			</div>

@@ -47,6 +47,32 @@ public class ListingDao {
 		}
 		return 0;
 	}
+	
+	public int updateListing(Listing listing) { 
+		/**
+		 * This method adds a new listing to the database.
+		 */
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("update listings set title=?, description=?, price=?, category=?, image=?, username=?"
+							+ " where listingID=?");
+			// Parameters start with 1
+			preparedStatement.setString(1, listing.getTitle());
+			preparedStatement.setString(2, listing.getDescription());
+			preparedStatement.setDouble(3, listing.getPrice());
+			preparedStatement.setString(4, listing.getCategory());
+			preparedStatement.setString(5, listing.getImagePath());
+			preparedStatement.setString(6, listing.getUsername());
+			preparedStatement.setInt(7, listing.getListingId());
+			int result = preparedStatement.executeUpdate();
+			
+			return result;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 	public int deleteListing(int listingID){
 		/**
