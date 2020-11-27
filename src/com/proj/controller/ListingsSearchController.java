@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.proj.dao.ListingDao;
 import com.proj.model.Listing;
 
-public class SearchController extends HttpServlet {
+public class ListingsSearchController extends HttpServlet {
     /**
      * This class only handles the SEARCH feature of the web app.
      *
@@ -24,13 +24,13 @@ public class SearchController extends HttpServlet {
      *
      */
     private static final long serialVersionUID = 1L;
-    private static String SEARCH_USER = "/listingResult.jsp";
+    private static String SEARCH_USER = "/Listing.jsp";
     private ListingDao dao;
 
     /**
      * Constructor for this class.
      */
-    public SearchController() {
+    public ListingsSearchController() {
         super();
         dao = new ListingDao();
     }
