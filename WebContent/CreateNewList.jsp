@@ -46,7 +46,7 @@
 					<div style="display: inline-block; vertical-align: top;">
 						<label class="table-label">Title:</label> <input type="text" name="title" /><br>
 						<label class="table-label">Listing Description:</label> <input type="text" name="listDesc" /><br>
-						<label class="table-label">Price:</label> <input type="text" name="price" /><br>
+						<label class="table-label">Price:</label> <input type="number" name="price" /><br>
 						<label class="table-label" for="study">Category:</label>
 						<select name="category" id="category">
 							<option value="Study Materials">Study Materials</option>

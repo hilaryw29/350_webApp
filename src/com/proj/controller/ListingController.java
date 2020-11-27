@@ -23,6 +23,7 @@ import com.proj.model.*;
 @MultipartConfig
 public class ListingController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public final String imagesBase = System.getProperty("user.dir") + File.separator + "listingImages";
 	private static String INSERT = "/CreateNewList.jsp";
 	private static String SEARCH_PAGE = "/SearchPage.jsp";
 	private static String LISTING_DETAILS = "/ListingDetails.jsp";
@@ -95,8 +96,9 @@ public class ListingController extends HttpServlet {
 		String fileName = getSubmittedFileName(filePart);
 		String filePath = System.getProperty("user.dir") + File.separator + "listingImages" + File.separator+ fileName;
 		System.out.println("FILEPATH CHECK:" + filePath);
-		InputStream is = filePart.getInputStream();
-		System.out.println("UPLOAD RESULT" + uploadFile(is, filePath));
+		InputStream input = filePart.getInputStream();
+		System.out.println("UPLOAD RESULT" + uploadFile(input, filePath));
+		
 		listing.setImagePath(filePath);
 	
 		
@@ -125,14 +127,21 @@ public class ListingController extends HttpServlet {
 	    return null;
 	}
 	
-	private boolean uploadFile (InputStream is, String path) {
+	private boolean uploadFile (InputStream input, String path) {
 		try {
-			byte[] byt = new byte[is.available()];
-			is.read();
-			FileOutputStream fops = new FileOutputStream(path);
-			fops.write(byt);
-			fops.flush();
-			fops.close();
+			int n;
+			byte[] buffer=new byte[4096];
+			FileOutputStream output = new FileOutputStream(path);
+			do
+			{
+			    n=input.read(buffer);
+			    if (n>0)
+			    {
+			        output.write(buffer, 0, n);
+			    }
+			}
+			while (n>=0);
+			
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
