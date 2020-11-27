@@ -46,27 +46,27 @@
 				<table style="with: 50%">
 					<tr>
 						<td>U of T Email</td>
-						<td><input type="text" name="email" /></td>
+						<td><input type="text" name="email" placeholder="jane.dole@mail.utoronto.ca" pattern=".+@mail.utoronto.ca" required></td>
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td><input type="password" name="password" /></td>
+						<td><input type="password" name="password" required></td>
 					</tr>
 					<tr>
 						<td>User Name</td>
-						<td><input type="text" name="username" /></td>
+						<td><input type="text" name="username" required></td>
 					</tr>
 					<tr>
 						<td>Date of Birth</td>
-						<td><input type="date" name="dob" /></td>
+						<td><input type="date" name="dob" required></td>
 					</tr>
 					<tr>
 						<td>Phone Number</td>
-						<td><input type="text" name="phoneNum" /></td>
+						<td><input type="text" name="phoneNum" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><small>Format: 123-456-7890</small></td>
 					</tr>
 					<tr>
 						<td>Region Located</td>
-						<td><input type="text" name="region" /></td>
+						<td><input type="text" name="region" required></td>
 					</tr></table>
 				<input type="submit" value="create account" />
 			</form>
