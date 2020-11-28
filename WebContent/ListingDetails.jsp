@@ -76,23 +76,17 @@
 					        
 					            <div class="caption">
 					            	<p>
-					                	Sold By: <c:out value="${listing.getUsername()}" />
+					                	<h3 style="font-size:18px;">Sold By:</h3> <c:out value="${listing.getUsername()}" />
 					                </p>
 					                <p>
-					                	Price: <c:out value="${listing.getPrice()}" />
+					                	<h3 style="font-size:18px;">Price:</h3> <c:out value="${listing.getPrice()}" />
 					                </p>
 					                <p>
-					                    <a href="#" class="btn btn-primary" role="button">
-					                  		a
-					                    </a> 
-					                    <a href="#" class="btn btn-default" role="button">
-					                    	a    
-					                    </a>
 					                </p>
 					            </div>
 					    </div>
 					    <div class="col-sm-12 col-md-12 col-lg-12">
-							<h2>Listing Description</h2>
+							<h3>Listing Description:</h3>
 							<p><c:out value="${listing.getDescription()}" /></p>
 				   	 	</div>
 			    	</div>

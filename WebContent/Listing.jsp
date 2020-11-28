@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
 <head>
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-  
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-
-<title>MIE350 Sample Web App - Login</title>
+<title>MIE350 Sample Web App - All Students in DB</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -26,56 +23,11 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<!-- DataTabe -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-  
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-
-<script>
-	$(document).ready( function () {
-    $('#table_id').DataTable();
-	} );
-</script>
-
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
-<style>
-	.table-label {
-		width: 200px;
-		display: inline-block;
-		text-align: right;
-	}
-	
-	a {
-	  text-decoration: none;
-	  display: inline-block;
-	  padding: 8px 16px;
-	}
-	
-	a:hover {
-	  background-color: #ddd;
-	  color: black;
-	}
-	
-	.previous {
-	  background-color: #f1f1f1;
-	  color: black;
-	}
-	
-	.next {
-	  background-color: #4CAF50;
-	  color: white;
-	}
-	
-	.round {
-	  border-radius: 50%;
-	}
-
-</style>
 </head>
 <body>
 
 	<%@ include file="navbar.jsp"%>
-	
 
 	<div class="container-fluid text-center">
 		<div class="row content">
@@ -84,29 +36,45 @@
 			</div>
 			<div class="col-sm-8 text-left">
 				<h1>Listing</h1>
-				<table id="table_id" class="display">
-				    <thead>
-				        <tr>
-				            <th>Title</th>
-				            <th>Description</th>
-				            <th>Price</th>
-				        </tr>
-				    </thead>
-				    <tbody>
-				        <tr>
-				            <td>Row 1 Data 1</td>
-				            <td>Row 1 Data 2</td>
-				            <td>Row 1 Data 2</td>
-				        </tr>
-				        <tr>
-				            <td>Row 2 Data 1</td>
-				            <td>Row 2 Data 2</td>
-				            <td>Row 1 Data 2</td>
-				        </tr>
-			  		</tbody>
-				</table>
-			</div>
 
+				The time is now <b><%=new java.util.Date()%></b>.<br> <br>
+
+				The following student information is displayed:
+				<ul>
+					<li>Student ID</li>
+					<li>First Name</li>
+					<li>Last Name</li>
+					<li>Email</li>
+				</ul>
+				Due to privacy concerns, students' dates of birth (DOB) <u>are
+					not</u> shown.<br /> <br /> The following <B><c:out
+						value="${students.size()}" /> students</B> are in your database (you
+				can click on the table headings to sort the students): <br /> <br />
+
+				<table border=1 class="sortable">
+					<thead>
+						<tr>
+							<th>Item</th>
+							<th>Description</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${students}" var="student">
+							<tr>
+								<td align="center"><c:out value="${student.getStudentid()}" /></td>
+								<td align="center"><c:out value="${student.getFirstName()}" /></td>
+								<td align="center"><c:out value="${student.getLastName()}" /></td>
+								<!--td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
+										value="${student.getDob()}" /></td-->
+								<!-- <td align="center"><c:out value="${student.getEmail()}" /></td>  -->
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+
+				<br /> <br />
+			</div>
 			<div class="col-sm-2 sidenav">
 				<!-- You can put right sidebar links here if you want to. -->
 			</div>
@@ -114,6 +82,7 @@
 	</div>
 
 	<%@ include file="footer.jsp"%>
+
 
 </body>
 </html>
