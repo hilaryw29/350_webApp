@@ -75,7 +75,7 @@
             </div>
 
             <div class="goods-table">
-                <button class="goods-cell bg1" onclick="myFunction('Study Material');">Study Material</button>
+                <button class="goods-cell bg1" onclick="myFunction('Stationery');">Stationery</button>
                 <button class="goods-cell bg2" onclick="myFunction('Textbooks');">Textbooks</button>
                 <button class="goods-cell bg3" onclick="myFunction('Hardware');">Hardware</button>
                 <button class="goods-cell bg4" onclick="myFunction('Other');">Other</button>

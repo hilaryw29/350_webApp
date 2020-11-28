@@ -122,6 +122,11 @@ public class ListingDao {
 	}
 
 	public List<Listing> getLisitngByKeyword (String keyword){
+		
+		if(keyword == "Stationery" || keyword == "Textbooks" || keyword == "Hardware" || keyword == "Other"){
+			return getListingByCategory(keyword);
+		}
+		
 		/**
 		 * This method retrieves a list of listing that matches the keyword
 		 * entered by the user.
