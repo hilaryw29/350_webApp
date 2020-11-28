@@ -4,6 +4,11 @@
 
 <html lang="en">
 <head>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
 <title>MIE350 Sample Web App - Login</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +25,17 @@
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- DataTabe -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+<script>
+	$(document).ready( function () {
+    $('#table_id').DataTable();
+	} );
+</script>
 
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
 <style>
@@ -68,95 +84,29 @@
 			</div>
 			<div class="col-sm-8 text-left">
 				<h1>Listing</h1>
-				<form style="border: 1px solid black; padding: 10px;">
-					<div class="row">
-					    <div class="col-sm-6 col-md-6 col-lg-6">
-					         <div class="thumbnail">
-					            <img src="/wp-content/uploads/2014/06/kittens.jpg" 
-					             alt="a">
-					            <div class="caption">
-					                <p>
-					                	Title
-					                	Price
-					                </p>
-					                <p>
-					                    <a href="#" class="btn btn-primary" role="button">
-					                  		a
-					                    </a> 
-					                    <a href="#" class="btn btn-default" role="button">
-					                    	a    
-					                    </a>
-					                </p>
-					            </div>
-					         </div>
-					    </div>
-					    <div class="col-sm-6 col-md-3 col-lg-6">
-				        <div class="thumbnail">
-				            <img src="/wp-content/uploads/2014/06/kittens.jpg" 
-				            alt="a">
-				            <div class="caption">
-				                <p>
-				                	Title
-				                	Price
-				                </p>
-				                <p>
-				                    <a href="#" class="btn btn-primary" role="button">
-				                  		a
-				                    </a> 
-				                    <a href="#" class="btn btn-default" role="button">
-				                    	a    
-				                    </a>
-				                </p>
-				            </div>
-				        </div>
-				    </div>
-			    	</div>
-				    <div class="row">
-					    <div class="col-sm-6 col-md-6 col-lg-6">
-					        <div class="thumbnail">
-					            <img src="/wp-content/uploads/2014/06/kittens.jpg" 
-					            alt="z">
-					            <div class="caption">
-					                <p>
-					                	Title
-					                	Price
-					                </p>
-					                <p>
-					                    <a href="#" class="btn btn-primary" role="button">
-					                  		a
-					                    </a> 
-					                    <a href="#" class="btn btn-default" role="button">
-					                    	a    
-					                    </a>
-					                </p>
-					            </div>
-					        </div>
-					    </div>
-					    <div class="col-sm-6 col-md-6 col-lg-6">
-					        <div class="thumbnail">
-					            <img src="/wp-content/uploads/2014/06/kittens.jpg" 
-					            alt="z">
-					            <div class="caption">
-					                <p>
-					                	Title
-					                	Price
-					                </p>
-					                <p>
-					                    <a href="#" class="btn btn-primary" role="button">
-					                        z
-					                    </a> 
-					                    <a href="#" class="btn btn-default" role="button">
-					                        z
-					                    </a>
-					                </p>
-					            </div>
-					        </div>
-					    </div>
-				</div>
-				<a href="#" class="previous">&laquo; Previous</a>
-				<a href="#" class="next">Next &raquo;</a>
-				</form>
+				<table id="table_id" class="display">
+				    <thead>
+				        <tr>
+				            <th>Title</th>
+				            <th>Description</th>
+				            <th>Price</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr>
+				            <td>Row 1 Data 1</td>
+				            <td>Row 1 Data 2</td>
+				            <td>Row 1 Data 2</td>
+				        </tr>
+				        <tr>
+				            <td>Row 2 Data 1</td>
+				            <td>Row 2 Data 2</td>
+				            <td>Row 1 Data 2</td>
+				        </tr>
+			  		</tbody>
+				</table>
 			</div>
+
 			<div class="col-sm-2 sidenav">
 				<!-- You can put right sidebar links here if you want to. -->
 			</div>
