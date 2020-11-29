@@ -24,6 +24,29 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+
+<style type="text/css">	 
+table#example {
+    border-collapse: collapse;   
+}
+#example tr {
+    background-color: #eee;
+    border-top: 1px solid #fff;
+}
+#example tr:hover {
+    background-color: #ccc;
+}
+#example th {
+    background-color: #fff;
+}
+#example th, #example td {
+    padding: 3px 5px;
+}
+#example td:hover {
+    cursor: pointer;
+}
+</style> 
+
 </head>
 <body>
 
@@ -50,26 +73,24 @@
 				<br /> The following <B><c:out
 						value="${listings.size()}" /> listings</B> are available (you
 				can click on the table headings to sort the listings): <br /> <br />
-
-				<table border=1 class="sortable">
-					<thead>
+				
+				<table id="example">
+					<tr>
+					    <th>&nbsp;</th>
+					    <th>Title</th>
+						<th>Price</th>
+						<th>Description</th>
+						<th>Category</th>
+					</tr>				
+					<c:forEach items="${listings}" var="listing">
 						<tr>
-							<th>Title</th>
-							<th>Price</th>
-							<th>Description</th>
-							<th>Category</th>
+							<td><a href="ListingController?action=listingdetails&listingId=${listing.getListingId()}">Details</a></td>
+							<td align="center"><c:out value="${listing.getTitle()}" /></td>
+							<td align="center"><c:out value="${listing.getPrice()}" /></td>
+							<td align="center"><c:out value="${listing.getDescription()}" /></td>
+							<td align="center"><c:out value="${listing.getCategory()}" /></td>
 						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${listings}" var="listing">
-							<tr>
-								<td align="center"><c:out value="${listing.getTitle()}" /></td>
-								<td align="center"><c:out value="${listing.getPrice()}" /></td>
-								<td align="center"><c:out value="${listing.getDescription()}" /></td>
-								<td align="center"><c:out value="${listing.getCategory()}" /></td>
-							</tr>
-						</c:forEach>
-					</tbody>
+					</c:forEach>
 				</table>
 
 				<br /> <br />
