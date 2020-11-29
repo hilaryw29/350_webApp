@@ -80,7 +80,7 @@ public class ListingDao {
 		 */
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from listing where listingID=?");
+					.prepareStatement("delete from listings where listingID=?");
 			preparedStatement.setInt(1, listingID);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -98,8 +98,7 @@ public class ListingDao {
 
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("select * from listing where category=?");
-
+					.prepareStatement("select * from listings where category=?");
 			preparedStatement.setString(1, category);
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -123,7 +122,7 @@ public class ListingDao {
 
 	public List<Listing> getLisitngByKeyword (String keyword){
 		
-		if(keyword == "Stationery" || keyword == "Textbooks" || keyword == "Hardware" || keyword == "Other"){
+		if(keyword.equals("Stationery") || keyword.equals("Textbooks") || keyword.equals("Hardware") || keyword.equals("Other")){
 			return getListingByCategory(keyword);
 		}
 		
@@ -135,7 +134,7 @@ public class ListingDao {
 
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("select * from listing where title LIKE ?");
+					.prepareStatement("select * from listings where title LIKE ?");
 			preparedStatement.setString(1,"%" + keyword + "%");
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {

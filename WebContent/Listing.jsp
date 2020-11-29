@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%%>
+	pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -35,39 +35,38 @@
 				<!-- You can put left sidebar links here if you want to. -->
 			</div>
 			<div class="col-sm-8 text-left">
-				<h1>Listing</h1>
+				<h1>Search Results For Listings</h1>
 
 				The time is now <b><%=new java.util.Date()%></b>.<br> <br>
 
-				The following student information is displayed:
+				The following listing information is displayed:
 				<ul>
-					<li>Student ID</li>
-					<li>First Name</li>
-					<li>Last Name</li>
-					<li>Email</li>
+					<li>Title</li>
+					<li>Price</li>
+					<li>Description</li>
+					<li>Category</li>
 				</ul>
-				Due to privacy concerns, students' dates of birth (DOB) <u>are
-					not</u> shown.<br /> <br /> The following <B><c:out
-						value="${students.size()}" /> students</B> are in your database (you
-				can click on the table headings to sort the students): <br /> <br />
+				
+				<br /> The following <B><c:out
+						value="${listings.size()}" /> listings</B> are available (you
+				can click on the table headings to sort the listings): <br /> <br />
 
 				<table border=1 class="sortable">
 					<thead>
 						<tr>
-							<th>Item</th>
-							<th>Description</th>
+							<th>Title</th>
 							<th>Price</th>
+							<th>Description</th>
+							<th>Category</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${students}" var="student">
+						<c:forEach items="${listings}" var="listing">
 							<tr>
-								<td align="center"><c:out value="${student.getStudentid()}" /></td>
-								<td align="center"><c:out value="${student.getFirstName()}" /></td>
-								<td align="center"><c:out value="${student.getLastName()}" /></td>
-								<!--td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
-										value="${student.getDob()}" /></td-->
-								<!-- <td align="center"><c:out value="${student.getEmail()}" /></td>  -->
+								<td align="center"><c:out value="${listing.getTitle()}" /></td>
+								<td align="center"><c:out value="${listing.getPrice()}" /></td>
+								<td align="center"><c:out value="${listing.getDescription()}" /></td>
+								<td align="center"><c:out value="${listing.getCategory()}" /></td>
 							</tr>
 						</c:forEach>
 					</tbody>
