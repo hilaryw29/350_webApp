@@ -12,7 +12,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="SearchPage.jsp">Search Listings</a></li>
 				<li><a href="CreateNewList.jsp">Create a Listing</a></li>
-				<li><a href="Listing.jsp">All Listings</a></li>
+				<li><a href="/mie350webapp/ListingController?action=listall">All Listings</a></li>
 				<li><a
 					href="/mie350webapp/StudentController?action=listStudent">Student
 						List (Public)</a></li>
