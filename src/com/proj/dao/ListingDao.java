@@ -180,6 +180,36 @@ public class ListingDao {
 		}
 		return listing;
 	}
+	
+	public List<Listing> getLisitngByUser (int userID){
+		
+		/**
+		 * This method retrieves a list of listing that belong to user
+		 */
+		
+		List<Listing> listings = new ArrayList<Listing>();
 
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from listings where userID = ?");
+			preparedStatement.setInt(1, userID);
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+				Listing listing = new Listing();
+				listing.setListingId(rs.getInt("listingID"));
+				listing.setTitle(rs.getString("title"));
+				listing.setDescription(rs.getString("description"));
+				listing.setPrice(rs.getDouble("price"));
+				listing.setCategory(rs.getString("category"));
+				listing.setImagePath(rs.getString("image"));
+				listing.setUserId(rs.getInt("userID"));
+				listing.setUsername(rs.getString("username"));
+				listings.add(listing);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listings;
+	}
 
 }

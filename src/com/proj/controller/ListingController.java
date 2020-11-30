@@ -30,6 +30,7 @@ public class ListingController extends HttpServlet {
 	private static String EDIT = "/EditListing.jsp";
 	private static String LOGIN_PAGE = "/index.jsp";
 	private static String ALL_LISTINGS = "/Listing.jsp";
+	private static String MY_LISTINGS = "/MyListing.jsp";
 	
 	private ListingDao dao;
 	
@@ -73,6 +74,10 @@ public class ListingController extends HttpServlet {
 		}else if (action.equalsIgnoreCase("listall")){
 			forward = ALL_LISTINGS;
 			request.setAttribute("listings", dao.getLisitngByKeyword(""));
+		}else if (action.equalsIgnoreCase("listingfromuser")){
+			int userId = Integer.parseInt(request.getParameter("userId"));
+			forward = MY_LISTINGS;
+			request.setAttribute("listings", dao.getLisitngByUser(userId));
 		} else {
 			forward = INSERT;
 		}

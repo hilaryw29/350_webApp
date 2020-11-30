@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR" import="com.proj.model.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -48,6 +48,7 @@ table#example {
 </style> 
 
 </head>
+
 <body>
 
 	<%@ include file="navbar.jsp"%>
@@ -71,10 +72,11 @@ table#example {
 				</ul>
 				
 				<br /> The following <B><c:out
-						value="${listings.size()}" /> listings</B> are available: <br /> <br />
+						value="${listings.size()}" /> listings</B> belongs to you: <br /> <br />
 				
 				<table id="example">
 					<tr>
+					    <th>&nbsp;</th>
 					    <th>&nbsp;</th>
 					    <th>Title</th>
 						<th>Price</th>
@@ -83,7 +85,8 @@ table#example {
 					</tr>				
 					<c:forEach items="${listings}" var="listing">
 						<tr>
-							<td><a href="ListingController?action=listingdetails&listingId=${listing.getListingId()}">Details</a></td>
+							<td><a href="ListingController?action=edit&listingId=${listing.getListingId()}">Edit</a></td>
+							<td><a href="ListingController?action=delete&listingId=${listing.getListingId()}">Delete</a></td>
 							<td align="center"><c:out value="${listing.getTitle()}" /></td>
 							<td align="center"><c:out value="${listing.getPrice()}" /></td>
 							<td align="center"><c:out value="${listing.getDescription()}" /></td>
