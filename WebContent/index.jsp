@@ -160,9 +160,9 @@ span.psw {
   		</div>
   		<div style="float: left; width: 50%;">
   			<p><b>New Users?</b></p>
-  			<a class="btn btn-primary" href="UserLoginController?action=insert">Create Account</a>
+  			<a class="btn btn-primary" href="UserLoginController?action=signup">Create Account</a>
   			<p><b>Admin Only</b></p>
-  			<a class="btn btn-warning" >Admin Login</a>
+  			<a class="btn btn-warning" href="UserLoginController?action=adminlogin">Admin Login</a>
   		</div>	
 	</section>
 

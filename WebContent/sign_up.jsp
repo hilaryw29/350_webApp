@@ -33,7 +33,7 @@
 </head>
 <body>
 
-<%@ include file="navbar.jsp"%>
+
 
 <div class="container-fluid text-center">
 	<div class="row content">

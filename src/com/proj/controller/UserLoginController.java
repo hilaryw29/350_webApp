@@ -15,7 +15,8 @@ import com.proj.model.User;
 
 public class UserLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String INSERT = "/sign_up.jsp";
+	private static String SIGNUP = "/sign_up.jsp";
+	private static String ADMINLOGIN =  "/AdminLogin.jsp";
 	
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -35,10 +36,10 @@ public class UserLoginController extends HttpServlet {
 		String action = request.getParameter("action");
 		
 		// TODO: Add redirect for admin once that's done
-		if (action.equalsIgnoreCase("insert")) {
-			forward = INSERT;
-		} else {
-			forward = INSERT;
+		if (action.equalsIgnoreCase("signup")) {
+			forward = SIGNUP;
+		} else if (action.equalsIgnoreCase("adminlogin")){
+			forward = ADMINLOGIN;
 		}
 
 		RequestDispatcher view = request.getRequestDispatcher(forward);

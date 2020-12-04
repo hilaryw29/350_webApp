@@ -59,6 +59,16 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+		<display-name>AdminLoginController</display-name>
+		<servlet-name>AdminLoginController</servlet-name>
+		<servlet-class>com.proj.controller.AdminLoginController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminLoginController</servlet-name>
+		<url-pattern>/AdminLoginController</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
 		<display-name>UserController</display-name>
 		<servlet-name>UserController</servlet-name>
 		<servlet-class>com.proj.controller.UserController</servlet-class>
