@@ -6,7 +6,7 @@
 
 <html lang="en">
 <head>
-<title>MIE350 Sample Web App - All Students in DB</title>
+<title>MIE350 Sample Web App - All Registered Students in DB</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -27,7 +27,7 @@
 </head>
 <body>
 
-	<%@ include file="navbar.jsp"%>
+	<%@ include file="AdminNavbar.jsp"%>
 
 	<div class="container-fluid text-center">
 		<div class="row content">
@@ -35,7 +35,7 @@
 				<!-- You can put left sidebar links here if you want to. -->
 			</div>
 			<div class="col-sm-8 text-left">
-				<h1>All Students In Database</h1>
+				<h1>All Registered Students In Database</h1>
 
 				The time is now <b><%=new java.util.Date()%></b>.<br> <br>
 
@@ -44,33 +44,35 @@
 					<li>Student ID</li>
 					<li>First Name</li>
 					<li>Last Name</li>
+					<li>Registration Date</li>
+					<li>Faculty</li>
 					<li>Email</li>
 				</ul>
-				Due to privacy concerns, students' dates of birth (DOB) <u>are
-					not</u> shown.<br /> <br /> The following <B><c:out
+				<br /> <br /> The following <B><c:out
 						value="${students.size()}" /> students</B> are in your database (you
 				can click on the table headings to sort the students): <br /> <br />
 
 				<table border=1 class="sortable">
 					<thead>
 						<tr>
-							<th>Student Id</th>
+							<th>Student ID</th>
 							<th>First Name</th>
 							<th>Last Name</th>
-							<!-- th>DOB</th -->
+							<th>Registration Date</th>
+							<th>Faculty</th>
 							<th>Email</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${students}" var="student">
+						<c:forEach items="${registeredStudents}" var="registeredStudent">
 							<tr>
-								<td align="center"><c:out value="${student.getStudentid()}" /></td>
-								<td align="center"><c:out value="${student.getFirstName()}" /></td>
-								<td align="center"><c:out value="${student.getLastName()}" /></td>
-								<!--td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
-										value="${student.getDob()}" /></td-->
-								<td align="center"><c:out value="${student.getEmail()}" /></td>
-
+								<td align="center"><c:out value="${registeredStudent.getStudentId()}" /></td>
+								<td align="center"><c:out value="${registeredStudent.getFirstName()}" /></td>
+								<td align="center"><c:out value="${registeredStudent.getLastName()}" /></td>
+								<td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
+										value="${registeredStudent.getRegistrationDate()}" /></td>
+								<td align="center"><c:out value="${registeredStudent.getFaculty()}" /></td>		
+								<td align="center"><c:out value="${registeredStudent.getEmail()}" /></td>
 							</tr>
 						</c:forEach>
 					</tbody>

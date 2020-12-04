@@ -19,10 +19,6 @@
 				<li><a href="SearchPage.jsp">Search Listings</a></li>
 				<li><a href="CreateNewList.jsp">Create a Listing</a></li>
 				<li><a href="/mie350webapp/ListingController?action=listall">All Listings</a></li>
-				<li><a
-					href="/mie350webapp/StudentController?action=listStudent">Student
-						List (Public)</a></li>
-				<li><a href="searchStudent.jsp">Search A Student</a></li>
 				<li class="dropdown"><a data-toggle="dropdown">My Account<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="/mie350webapp/UserController?action=edit">Edit Account Info</a></li>

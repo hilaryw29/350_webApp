@@ -69,6 +69,16 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+		<display-name>RegisteredStudentController</display-name>
+		<servlet-name>RegisteredStudentController</servlet-name>
+		<servlet-class>com.proj.controller.RegisteredStudentController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisteredStudentController</servlet-name>
+		<url-pattern>/RegisteredStudentController</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
 		<display-name>UserController</display-name>
 		<servlet-name>UserController</servlet-name>
 		<servlet-class>com.proj.controller.UserController</servlet-class>
