@@ -12,7 +12,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="/mie350webapp/RegisteredStudentController?action=list">Registered Student List</a></li>
 				<li><a href="/mie350webapp/RegisteredStudentController?action=insert">New Student</a></li>
-				<li><a href="searchStudent.jsp">Search A Student</a></li>
+				<li><a href="searchRegisteredStudent.jsp">Search A Student</a></li>
 			</ul>
 			<!-- The following code can be added to include a Login button to the right-hand side of the navbar-->
 			<ul class="nav navbar-nav navbar-right">

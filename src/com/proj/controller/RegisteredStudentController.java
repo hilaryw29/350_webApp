@@ -49,6 +49,10 @@ public class RegisteredStudentController extends HttpServlet {
 		} else if (action.equalsIgnoreCase("list")) {
 			forward = LIST;
 			request.setAttribute("registeredStudents", dao.getAllRegisteredStudent());
+		} else if (action.equalsIgnoreCase("search")) {
+			forward = LIST;
+			String keyword = request.getParameter("keyword");
+			request.setAttribute("registeredStudents", dao.getRegisteredStudentByKeyword(keyword));		
 		} else {
 			forward = INSERT;
 		}

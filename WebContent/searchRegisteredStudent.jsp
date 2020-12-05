@@ -27,14 +27,7 @@
 </head>
 <body>
 
-	<%@ include file="navbar.jsp"%>
-
-	<%
-		Member member = (Member) session.getAttribute("currentSessionUser");
-
-		String username = (String) session.getAttribute("username");
-		String firstname = (String) session.getAttribute("firstname");
-	%>
+	<%@ include file="AdminNavbar.jsp"%>
 
 	<div class="container-fluid text-center">
 		<div class="row content">
@@ -42,16 +35,16 @@
 				<!-- You can put left sidebar links here if you want to. -->
 			</div>
 			<div class="col-sm-8 text-left">
-				<h1>Search A Student</h1>
+				<h1>Search A Registered Student</h1>
 
 				Type in any keyword to search for student information (last name,
 				first name, email) that matches the keyword. <Br />
 				<Br />
 				<center>
-					<form method="POST" action='SearchController' name="frmAddUser">
-						Keyword: <input type="text" name="keyword"
-							value="<c:out value="${student.searchword}" />"><input
-							type="submit" class="btn btn-info" value="Submit" />
+					<form method="GET" action= "RegisteredStudentController" name="frmAddUser">
+						<input type = "hidden" name = "action" value = "search" />
+						Keyword: <input type="text" name="keyword" />					
+						<input type="submit" class="btn btn-info" value="Submit"/>
 					</form>
 				</center>
 
