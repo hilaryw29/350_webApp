@@ -29,39 +29,27 @@
 
 	<%@ include file="AdminNavbar.jsp"%>
 
-	<%
-		Member member = (Member) session.getAttribute("currentSessionUser");
-
-		String username = (String) session.getAttribute("username");
-		String firstname = (String) session.getAttribute("firstname");
-		String lastname = (String) session.getAttribute("lastname");
-	%>
-
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<%@ include file="sidebar_loggedin.jsp"%>
 			<div class="col-sm-8 text-left">
-				<h1>Edit A Student</h1>
+				<h1>Edit A Registered Student</h1>
 
-				<script>
-					$(function() {
-						$('input[name=dob]').datepicker();
-					});
-				</script>
 				Note: the Student ID is a fixed field and cannot be changed. <br>
 				<br>
 
-				<form method="POST" action='StudentController' name="frmAddUser">
+				<form method="POST" action='RegisteredStudentController' name="frmAddUser">
 					Student ID*: <input type="text" readonly="readonly"
-						name="studentid" value="<c:out value="${student.studentid}" />"><br>
+						name="studentId" value="<c:out value="${registeredStudent.getStudentId()}" />"><br>
 					First Name: <input type="text" name="firstName"
-						value="<c:out value="${student.firstName}" />"><br>
+						value="<c:out value="${registeredStudent.getFirstName()}" />"><br>
 					Last Name : <input type="text" name="lastName"
-						value="<c:out value="${student.lastName}" />"><br>DOB
-					(MM/dd/yyyy): <input type="text" name="dob"
-						value="<fmt:formatDate pattern="MM/dd/yyyy" value="${student.dob}" />"><br>
+						value="<c:out value="${registeredStudent.getLastName()}" />"><br>Registration Date
+					(MM/dd/yyyy): <input type="text" name="registrationDate"
+						value="<fmt:formatDate pattern="MM/dd/yyyy" value="${registeredStudent.getRegistrationDate()}" />"><br>
+					Faculty: <input type="text" name="faculty"
+						value="<c:out value="${registeredStudent.getFaculty()}" />"><br>
 					Email: <input type="text" name="email"
-						value="<c:out value="${student.email}" />"><br> <br>
+						value="<c:out value="${registeredStudent.getEmail()}" />"><br> <br>
 					<input type="submit" class="btn btn-info" value="Submit" />
 				</form>
 
