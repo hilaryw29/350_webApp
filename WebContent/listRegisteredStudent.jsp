@@ -48,9 +48,6 @@
 					<li>Faculty</li>
 					<li>Email</li>
 				</ul>
-				<br /> <br /> The following <B><c:out
-						value="${students.size()}" /> students</B> are in your database (you
-				can click on the table headings to sort the students): <br /> <br />
 
 				<table border=1 class="sortable">
 					<thead>
