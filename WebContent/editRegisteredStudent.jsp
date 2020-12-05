@@ -27,7 +27,7 @@
 </head>
 <body>
 
-	<%@ include file="navbar_loggedin.jsp"%>
+	<%@ include file="AdminNavbar.jsp"%>
 
 	<%
 		Member member = (Member) session.getAttribute("currentSessionUser");

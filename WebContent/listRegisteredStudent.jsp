@@ -73,6 +73,7 @@
 										value="${registeredStudent.getRegistrationDate()}" /></td>
 								<td align="center"><c:out value="${registeredStudent.getFaculty()}" /></td>		
 								<td align="center"><c:out value="${registeredStudent.getEmail()}" /></td>
+								<td><a href="RegisteredStudentController?action=delete&studentId=${registeredStudent.getStudentId()}">Delete</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
