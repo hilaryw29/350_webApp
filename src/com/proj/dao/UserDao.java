@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+//import java.util.Date;
+
 
 import com.proj.model.*;
 import com.proj.controller.*;
@@ -154,4 +158,50 @@ public class UserDao {
 
 		return user;
 	}
+	
+	public List<User> getUserByKeyword (String keyword) {
+		List<User> users = new ArrayList<User>();
+		
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from users where username LIKE ? OR email LIKE ?");
+			preparedStatement.setString(1, "%" + keyword + "%");
+			preparedStatement.setString(2, "%" + keyword + "%");
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				User user = new User();
+				user.setUserid(rs.getInt("userID"));
+				user.setEmail(rs.getString("email"));
+				user.setUsername(rs.getString("username"));
+				user.setPhoneNumber(rs.getString("phoneNum"));
+				user.setRegion(rs.getString("region"));
+				user.setDob(rs.getDate("dob"));
+				users.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return users;
+	}
+	
+	public void suspendUser(int userId, int adminId, String reason){
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("insert into suspendedUsers(userID,adminID,SuspensionReason) values (?, ?, ?)");
+			
+			preparedStatement.setInt(1, userId);
+			preparedStatement.setInt(2, adminId);
+			//preparedStatement.setDate(3, new java.sql.Date(utilDate.getTime()));
+			preparedStatement.setString(3, reason);
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 }

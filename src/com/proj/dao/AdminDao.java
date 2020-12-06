@@ -39,6 +39,7 @@ public class AdminDao {
 			if (!more) {
 				return false;
 			}else{
+				admin.setAdminId(rs.getInt("adminID"));
 				return true;
 			}
 		}catch (Exception ex) {

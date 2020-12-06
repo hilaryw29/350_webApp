@@ -26,7 +26,10 @@ public class AdminLoginController extends HttpServlet {
 
 		try {
 			if (admin.isValid()) {
-				response.sendRedirect("listRegisteredStudent.jsp");
+				HttpSession session = request.getSession(true);
+				session.setAttribute("currentSessionAdminId", admin.getAdminId());
+
+				response.sendRedirect("searchRegisteredStudent.jsp");
 			}else {
 				response.sendRedirect("invalidLogin.jsp");
 			}

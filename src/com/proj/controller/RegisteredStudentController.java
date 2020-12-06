@@ -19,7 +19,8 @@ public class RegisteredStudentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String INSERT = "/addRegisteredStudent.jsp";
 	private static String EDIT = "/editRegisteredStudent.jsp";
-	private static String LIST = "/listRegisteredStudent.jsp";//temper..
+	private static String LIST = "/listRegisteredStudent.jsp";
+	private static String SEARCH = "/searchRegisteredStudent.jsp";
 
 	private RegisteredStudentDao dao;
 
@@ -37,8 +38,7 @@ public class RegisteredStudentController extends HttpServlet {
 		if (action.equalsIgnoreCase("delete")) {
 			int studentId = Integer.parseInt(request.getParameter("studentId"));
 			dao.deleteRegisteredStudent(studentId);
-			forward = LIST;
-			request.setAttribute("registeredStudents", dao.getAllRegisteredStudent());
+			forward = SEARCH;
 		} else if (action.equalsIgnoreCase("insert")) {
 			forward = INSERT;
 		} else if (action.equalsIgnoreCase("edit")) {

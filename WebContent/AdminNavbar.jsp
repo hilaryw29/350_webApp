@@ -6,13 +6,14 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.jsp">StudyBuddy</a>
+			<a class="navbar-brand" href="searchRegisteredStudent.jsp">StudyBuddy</a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><a href="/mie350webapp/RegisteredStudentController?action=list">Registered Student List</a></li>
-				<li><a href="/mie350webapp/RegisteredStudentController?action=insert">New Student</a></li>
 				<li><a href="searchRegisteredStudent.jsp">Search A Student</a></li>
+				<li><a href="/mie350webapp/RegisteredStudentController?action=list">All Registered Student</a></li>
+				<li><a href="/mie350webapp/RegisteredStudentController?action=insert">New Registered Student</a></li>
+				<li><a href="searchUser.jsp">Search User</a></li>
 			</ul>
 			<!-- The following code can be added to include a Login button to the right-hand side of the navbar-->
 			<ul class="nav navbar-nav navbar-right">

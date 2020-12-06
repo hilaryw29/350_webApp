@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.mie.model.Student;
 import com.proj.dao.UserDao;
+import com.proj.model.RegisteredStudent;
 import com.proj.model.User;
 
 public class UserController extends HttpServlet {
@@ -22,6 +23,7 @@ public class UserController extends HttpServlet {
 	private static String LOGIN_PAGE = "/index.jsp";
 	private static String EDIT = "/EditAccount.jsp"; 
 	private static String SEARCH_PAGE = "/SearchPage.jsp";
+	private static String LIST = "/listUser.jsp";
 	
 	private UserDao dao;
 
@@ -54,6 +56,16 @@ public class UserController extends HttpServlet {
 			forward = INSERT;
 		} else if (action.equalsIgnoreCase("edit")) {
 			forward = EDIT;
+		} else if (action.equalsIgnoreCase("search")){
+			forward = LIST;
+			String keyword = request.getParameter("keyword");
+			request.setAttribute("users", dao.getUserByKeyword(keyword));	
+		} else if (action.equalsIgnoreCase("suspend")){
+			forward = LIST;
+			int userId = Integer.parseInt(request.getParameter("userId"));
+			int adminId = Integer.parseInt(request.getParameter("adminId"));
+			String reason = request.getParameter("reason");
+			dao.suspendUser(userId, adminId, reason);	
 		}
 
 		RequestDispatcher view = request.getRequestDispatcher(forward);
