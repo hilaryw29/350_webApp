@@ -43,7 +43,7 @@
 						name="studentId"><br>
 					First Name: <input type="text" name="firstName"
 						value="<c:out value="${registeredStudent.getFirstName()}" />"><br>
-					Last Name : <input type="date" name="lastName"
+					Last Name : <input type="text" name="lastName"
 						value="<c:out value="${registeredStudent.getLastName()}" />"><br>Registration Date
 					(MM/dd/yyyy): <input type="date" name="registrationDate"
 						value="<fmt:formatDate pattern="MM/dd/yyyy" value="${registeredStudent.getRegistrationDate()}" />"><br>
