@@ -67,8 +67,6 @@ public class UserController extends HttpServlet {
 			int userId = Integer.parseInt(request.getParameter("userId"));
 			int adminId = Integer.parseInt(request.getParameter("adminId"));
 			String reason = request.getParameter("reason");
-			System.out.println(userId + reason);
-			System.out.println(adminId);
 			
 			dao.suspendUser(userId, adminId, reason);	
 		}
