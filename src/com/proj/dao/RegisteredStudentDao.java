@@ -117,6 +117,29 @@ public class RegisteredStudentDao {
 
 		return registeredStudent;
 	}
+	
+	public boolean checkRegisteredStudentByEmail (String email) {
+		
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from registeredStudents where email=?");
+			preparedStatement.setString(1, email);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			boolean more = rs.next();
+			
+			if (!more) {
+				return false;
+			} else if (more) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return false;
+	}
 
 	public List<RegisteredStudent> getRegisteredStudentByKeyword(String keyword) {
 		

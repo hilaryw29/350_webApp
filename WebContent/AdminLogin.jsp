@@ -155,6 +155,7 @@ to {
 
 <body>
 	
+	<%@ include file="navbar_external.jsp"%>
 	<div class="imgcontainer">
 		<img src="img/UofT.png" alt="Avatar" class="avatar">
 	</div>

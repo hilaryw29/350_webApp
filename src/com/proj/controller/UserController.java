@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.mie.model.Student;
+import com.proj.dao.RegisteredStudentDao;
 import com.proj.dao.UserDao;
 import com.proj.model.RegisteredStudent;
 import com.proj.model.User;
@@ -24,6 +25,7 @@ public class UserController extends HttpServlet {
 	private static String EDIT = "/EditAccount.jsp"; 
 	private static String SEARCH_PAGE = "/SearchPage.jsp";
 	private static String LIST = "/listUser.jsp";
+	private static String NOT_REGISTERED = "/notRegistered.jsp";
 	
 	private UserDao dao;
 
@@ -98,9 +100,19 @@ public class UserController extends HttpServlet {
 		 * user account info as well.
 		 */
 		boolean newUser = false;
+		boolean notRegistered = false;
 		if (userId == null || userId.isEmpty()) {
-			dao.addUser(user);
 			newUser = true;
+			RegisteredStudentDao registeredStudent = new RegisteredStudentDao();
+			
+			if (registeredStudent.checkRegisteredStudentByEmail(user.getEmail())) {
+				System.out.println("REGISTERED STUDENT NOT NULL");
+				dao.addUser(user);
+			} else {
+				//We notify user that their u of t email cannot be found in the database
+				System.out.println("REGISTERED STUDENT IS NULL");
+				notRegistered = true;
+			}
 		} else {
 			user.setUserid(Integer.parseInt(userId));
 			
@@ -115,8 +127,6 @@ public class UserController extends HttpServlet {
 				session.setAttribute("phoneNum", user.getPhoneNumber());
 				session.setAttribute("region", user.getRegion());
 				session.setAttribute("dob", user.getDob());
-			} else {
-				//Potentially display an error message? Or take user to another page
 			}
 			
 		}
@@ -129,8 +139,13 @@ public class UserController extends HttpServlet {
 		 */
 		RequestDispatcher view;
 		if (newUser) {
-			view = request
-					.getRequestDispatcher(LOGIN_PAGE);
+			if (notRegistered) {
+				view = request
+						.getRequestDispatcher(NOT_REGISTERED);
+			} else {
+				view = request
+						.getRequestDispatcher(LOGIN_PAGE);
+			}
 		} else {
 			view = request
 					.getRequestDispatcher(SEARCH_PAGE);
