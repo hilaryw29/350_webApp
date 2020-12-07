@@ -7,8 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 //import java.util.Date;
+
 
 
 import com.proj.model.*;
@@ -189,13 +191,13 @@ public class UserDao {
 	public void suspendUser(int userId, int adminId, String reason){
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into suspendedUsers(userID,adminID,SuspensionReason) values (?, ?, ?)");
+					.prepareStatement("insert into suspendedUsers(userID,AdminID,SuspensionDate,SuspensionReason) values (?, ?, ?, ?)");
 			
 			preparedStatement.setInt(1, userId);
 			preparedStatement.setInt(2, adminId);
-			//preparedStatement.setDate(3, new java.sql.Date(utilDate.getTime()));
-			preparedStatement.setString(3, reason);
-			
+			preparedStatement.setDate(3, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
+			preparedStatement.setString(4, reason);
+			preparedStatement.executeUpdate();		
 
 		} catch (SQLException e) {
 			e.printStackTrace();
