@@ -68,26 +68,29 @@ public class UserLoginController extends HttpServlet {
 			 * current member.
 			 */
 			if (user.isValid()) {
+				if (user.isSuspended()){
+					response.sendRedirect("suspended.jsp");
+				}else{
+					HttpSession session = request.getSession(true);
+					session.setAttribute("currentSessionUser", user);
+					session.setAttribute("userId", user.getUserid());
+					session.setAttribute("username", user.getUsername());
+					session.setAttribute("email", user.getEmail());
+					session.setAttribute("phoneNum", user.getPhoneNumber());
+					session.setAttribute("region", user.getRegion());
+					session.setAttribute("dob", user.getDob());
+					/**
+					 * TODO: Redirect to the members-only (listings??) page. Update redirect file.
+					 * Redirecting to a random page (about.jsp) for now to check if login works.
+					 */
+					response.sendRedirect("SearchPage.jsp");
 
-				HttpSession session = request.getSession(true);
-				session.setAttribute("currentSessionUser", user);
-				session.setAttribute("userId", user.getUserid());
-				session.setAttribute("username", user.getUsername());
-				session.setAttribute("email", user.getEmail());
-				session.setAttribute("phoneNum", user.getPhoneNumber());
-				session.setAttribute("region", user.getRegion());
-				session.setAttribute("dob", user.getDob());
-				/**
-				 * TODO: Redirect to the members-only (listings??) page. Update redirect file.
-				 * Redirecting to a random page (about.jsp) for now to check if login works.
-				 */
-				response.sendRedirect("SearchPage.jsp");
-
-				/**
-				 * Set a timeout variable of 900 seconds (15 minutes) for this
-				 * member who has logged into the system.
-				 */
-				session.setMaxInactiveInterval(900);
+					/**
+					 * Set a timeout variable of 900 seconds (15 minutes) for this
+					 * member who has logged into the system.
+					 */
+					session.setMaxInactiveInterval(900);
+				}
 			}
 
 			else {

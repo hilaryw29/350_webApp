@@ -15,6 +15,7 @@ public class User {
 	private String region;
 	private String email;
 	private boolean valid;
+	private boolean suspended;
 
 	public int getUserid() {
 		return userId;
@@ -80,6 +81,14 @@ public class User {
 		this.region = region;
 	}
 	
+	public boolean isSuspended() {
+		return suspended;
+	}
+
+	public void setSuspended(boolean suspended) {
+		this.suspended = suspended;
+	}
+
 	@Override
 	public String toString() {
 		return "User [userid=" + userId + ", username=" + username

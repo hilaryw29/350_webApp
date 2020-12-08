@@ -77,6 +77,17 @@ public class UserDao {
 				user.setDob(rs.getDate("dob"));
 				
 				user.setValid(true);
+				
+				String suspendQuery = "select * from suspendedUsers where userID="
+						+ user.getUserid();
+				rs = stmt.executeQuery(suspendQuery);
+				more = rs.next();
+				if (!more) {
+					user.setSuspended(false);
+				}else{
+					user.setSuspended(true);
+				}
+				
 			}
 		}
 
