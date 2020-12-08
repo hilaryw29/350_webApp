@@ -23,7 +23,6 @@
 					<ul class="dropdown-menu">
 						<li><a href="/mie350webapp/UserController?action=edit">Edit Account Info</a></li>
 						<li><a href="/mie350webapp/ListingController?action=listingfromuser&userId=<%=usern.getUserid()%>">My Listings</a></li>
-						<li><a href="helpful_links.jsp">Another Related Page</a></li>
 					</ul></li>
 			</ul>
 			<!-- The following code can be added to include a Login button to the right-hand side of the navbar-->
