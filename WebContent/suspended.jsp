@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR" import="com.mie.model.*"%>
+	pageEncoding="EUC-KR" import="com.proj.model.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -36,7 +36,7 @@
 			<div class="col-sm-8 text-left">
 
 				<h1>You have been Suspended</h1>
-
+				<p> Please contact an admin for further details</p>
 
 			</div>
 			<div class="col-sm-2 sidenav">
