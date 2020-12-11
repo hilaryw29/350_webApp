@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mie.model.Student;
 import com.proj.dao.RegisteredStudentDao;
 import com.proj.dao.UserDao;
 import com.proj.model.RegisteredStudent;

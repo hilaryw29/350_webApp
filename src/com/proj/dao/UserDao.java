@@ -15,7 +15,6 @@ import java.util.List;
 
 import com.proj.model.*;
 import com.proj.controller.*;
-import com.mie.model.Student;
 import com.mie.util.DbUtil;
 
 public class UserDao {

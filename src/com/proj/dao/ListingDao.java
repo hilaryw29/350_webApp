@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mie.model.Student;
 import com.proj.model.*;
 import com.proj.controller.*;
 import com.mie.util.DbUtil;
